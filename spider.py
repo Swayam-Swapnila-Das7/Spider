@@ -9,7 +9,7 @@ try :
         os.system('color')
     
 
-except ImportError: 
+except ModuleNotFoundError : 
     print('''
   [!] Critical Error: Core modules failed to import.
   Please verify your Python environment and dependencies.
@@ -66,12 +66,16 @@ MAROON = "\033[31m"
 RESET = "\033[0m"
 
 time = datetime.now()
-# Print Header & developer details
-print(MAROON + banner+ RESET)
-print(YELLOW + "    [Developer : Swayam]")
-print(YELLOW + "    [LinkedIn  : https://www.linkedin.com/in/swayam-swapnila-das]")
-print(YELLOW + f'    [Time      : {time}]' + RESET)
-print('\n' + '='*55 + '\n')
+
+def header() :
+    # Print Header & developer details
+    print(MAROON + banner+ RESET)
+    print(YELLOW + "    [Developer : Swayam]")
+    print(YELLOW + "    [LinkedIn  : https://www.linkedin.com/in/swayam-swapnila-das]")
+    print(YELLOW + f'    [Date      : {time.date()}]' + RESET)
+    print(YELLOW + f'    [Time      : {time.time()}]' + RESET)
+    print('\n' + '='*55 + '\n')
+
 
 def brute_force(url,wordlist) :
     print(BLUE + 'Wait until you get the completion message...' + RESET)
@@ -93,7 +97,7 @@ def brute_force(url,wordlist) :
                     print(RED + f'Internal server error at {target_url}' + RESET)
                 elif Status >= 300 and Status <= 399 :
                     redirect_location = response.headers.get('Location')
-                    print(YELLOW + f"{target_url}" + RESET + 'is moved to ' + BLUE + f"{redirect_location}" + RESET)
+                    print(YELLOW + f"{target_url}" + RESET + ' is moved to ' + BLUE + f"{redirect_location}" + RESET)
                 else :
                     continue 
 
@@ -110,6 +114,7 @@ arguments = sys.argv
 if len(arguments) == 3 :
     url = arguments[1]
     wordlist = arguments[2]
+    header()
     brute_force(url,wordlist)
 else :
     print(RED + 'INVALID ARGUMENTS' + RESET)
