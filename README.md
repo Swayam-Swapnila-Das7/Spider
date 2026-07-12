@@ -198,6 +198,19 @@ All users of this tool must adhere to the guidelines in `CODE_OF_CONDUCT.md`. By
 
 ---
 
+## Professional Use & Ethical Framework
+
+This project demonstrates commitment to ethical development:
+- ✅ Comprehensive Code of Conduct
+- ✅ Legal compliance guidelines
+- ✅ Responsible disclosure principles
+- ✅ Professional documentation standards
+
+Used by security professionals and students for authorized testing 
+and educational purposes only.
+
+---
+
 ## Disclaimer
 
 **USE AT YOUR OWN RISK.** This tool is provided as-is without any warranty. The author is not responsible for:
