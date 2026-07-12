@@ -177,9 +177,8 @@ The maintainers of this project reserve the right to:
 
 If you witness misuse of Spider:
 
-1. **Email**: Report to swayamswapnila.code@gmail.com with details
-2. **GitHub**: File a security advisory on the repository
-3. **Legal**: Contact appropriate law enforcement if applicable
+1. **GitHub**: File a security advisory on the repository
+2. **Legal**: Contact appropriate law enforcement if applicable
 
 ---
 

@@ -36,13 +36,58 @@ This tool performs directory enumeration and HTTP fuzzing on target web servers.
 - Python 3.10+
 - pip (Python package manager)
 
-### Steps:
+### Setup Instructions (Recommended with Virtual Environment)
+
+#### **Option 1: Using Virtual Environment (Recommended) 🔒**
+
+Using a virtual environment is the best practice to isolate project dependencies and avoid conflicts with other Python projects.
+
+**On Windows:**
 ```bash
 # Clone the repository
 git clone https://github.com/Swayam-Swapnila-Das7/Spider.git
 cd Spider
 
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+venv\Scripts\activate
+
 # Install dependencies
+pip install -r requirements.txt
+
+# Run the tool
+python spider.py
+```
+
+**On macOS/Linux:**
+```bash
+# Clone the repository
+git clone https://github.com/Swayam-Swapnila-Das7/Spider.git
+cd Spider
+
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the tool
+python spider.py
+```
+
+#### **Option 2: Global Installation (Not Recommended)**
+
+```bash
+# Clone the repository
+git clone https://github.com/Swayam-Swapnila-Das7/Spider.git
+cd Spider
+
+# Install dependencies globally
 pip install -r requirements.txt
 
 # Run the tool
@@ -130,7 +175,6 @@ Spider/
 **SWAYAM SWAPNILA DAS**
 - GitHub: [@Swayam-Swapnila-Das7](https://github.com/Swayam-Swapnila-Das7)
 - LinkedIn: [swayam-swapnila-das](https://www.linkedin.com/in/swayam-swapnila-das)
-- Email: swayamswapnila.code@gmail.com
 
 ---
 
@@ -166,6 +210,36 @@ All users of this tool must adhere to the guidelines in `CODE_OF_CONDUCT.md`. By
 
 ---
 
+## Virtual Environment FAQs
+
+### What is a Virtual Environment?
+A virtual environment is an isolated Python environment on your system. It allows you to install project-specific dependencies without affecting other projects or your system Python installation.
+
+### Why Use Virtual Environment?
+- ✅ **Isolation**: Each project has its own dependencies
+- ✅ **No Conflicts**: Avoid version conflicts between projects
+- ✅ **Clean System**: Keep your system Python clean
+- ✅ **Best Practice**: Industry standard for Python development
+- ✅ **Easy Cleanup**: Just delete the folder to remove all dependencies
+
+### How to Deactivate Virtual Environment?
+```bash
+# On Windows
+venv\Scripts\deactivate
+
+# On macOS/Linux
+deactivate
+```
+
+### How to Delete Virtual Environment?
+```bash
+# Simply delete the venv folder when done
+rm -rf venv          # macOS/Linux
+rmdir /s venv        # Windows
+```
+
+---
+
 ## Contributing
 
 Contributions are welcome! Please ensure:
@@ -189,6 +263,7 @@ Contributions are welcome! Please ensure:
 - [OWASP - Authorized Testing](https://owasp.org/www-community/attacks/Web_Testing_Framework)
 - [Legal Aspects of Penetration Testing](https://www.sans.org/reading-room/)
 - [Responsible Disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure)
+- [Python Virtual Environments](https://docs.python.org/3/tutorial/venv.html)
 
 ---
 
