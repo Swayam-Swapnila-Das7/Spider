@@ -107,9 +107,9 @@ def help():
     {GREEN}OPTIONS:{RESET}
         {YELLOW}help OR h(NOT CASE SENSITIVE){RESET}            Displays this reference guide.
 
-    ---------------------------- NOTE -----------------------------
-    ONLY USE THIS ON THE NETWORKS YOU OWN OR HAVE PERMISSION TO USE
-    ---------------------------------------------------------------
+    ------------------------------------- NOTE --------------------------------------
+    ONLY USE THIS ON THE NETWORKS YOU OWN OR HAVE EXPLICIT PERMISSION TO USE AND TEST
+    ---------------------------------------------------------------------------------
     """)
     print(BLUE + "    " + "="*55 + "\n" + RESET)
 
