@@ -77,6 +77,66 @@ def header() :
     print('\n' + '='*55 + '\n')
 
 
+def help():
+    print(BLUE + "\n    " + "="*55 + RESET)
+    print(YELLOW + "                URL Directory Enumerator Help" + RESET)
+    print(BLUE + "    " + "="*55 + RESET)
+    print(f"""
+    This tool is designed to perform directory and page enumeration against 
+    a target URL using a provided wordlist to identify accessible paths.
+
+    {GREEN}USAGE MODES:{RESET}
+
+    1. {BLUE}Interactive Menu (CLI Loop){RESET}
+        Simply run the script without any arguments:
+        {YELLOW}python script.py{RESET}
+        The program will guide you through entering the target URL and wordlist path.
+
+    2. {BLUE}Direct Command Line Arguments{RESET}
+        Pass the target URL and wordlist file path directly when launching:
+        {YELLOW}python script.py <Target_URL> <Path_To_Wordlist>{RESET}
+         Example:
+        python script.py example.com common.txt
+
+    {GREEN}ARGUMENT DETAILS:{RESET}
+        {YELLOW}Target URL:{RESET}     The domain or IP address to scan.
+                   The script automatically enforces HTTPS protocols if missing.
+        {YELLOW}Wordlist File:{RESET}  A plain text file containing directories/filenames to test 
+                   (one entry per line).
+
+    {GREEN}OPTIONS:{RESET}
+        {YELLOW}help OR h(NOT CASE SENSITIVE){RESET}            Displays this reference guide.
+
+    ---------------------------- NOTE -----------------------------
+    ONLY USE THIS ON THE NETWORKS YOU OWN OR HAVE PERMISSION TO USE
+    ---------------------------------------------------------------
+    """)
+    print(BLUE + "    " + "="*55 + "\n" + RESET)
+
+def cli_loop():
+    header()
+    # Main Interactive CLI Loop
+    while True:
+        print(MAROON + '\n[ MAIN INTERFACE ]' + RESET)
+        print(BLUE + '  [1] Start Brute force' + RESET)
+        print(BLUE + '  [2] Help' + RESET)
+        print(BLUE + '  [3] Terminate Program' + RESET)
+    
+        choice = input('\nSelect option ID (1-3): ').strip()
+    
+        match choice:
+            case '1':
+                url = input(YELLOW + 'Enter the target URL Address : ' + RESET)
+                wordlist = input(YELLOW + 'Enter the Wordlist File Path: ' + RESET)
+                brute_force(url,wordlist)
+            case '2':
+                help()
+            case '3':
+                print(GREEN + "\n[+] Session closed safely !" + RESET)
+                break 
+            case _:
+                print(RED + '\n[-] Invalid Input: Please specify a choice between available valid options !' + RESET)
+
 def brute_force(url,wordlist) :
     print(BLUE + 'Wait until you get the completion message...' + RESET)
     if not url.startswith((r'https://',r'http://')) :
@@ -92,12 +152,14 @@ def brute_force(url,wordlist) :
                 response = requests.get(target_url,allow_redirects = False)
                 Status = response.status_code
                 if Status >= 200 and Status <= 299 :
-                    print(GREEN + f'Page found at : {target_url}' + RESET)
+                    print(GREEN + f'  [+] Page found at : {target_url}\n' + RESET)
                 elif Status >= 500 :
-                    print(RED + f'Internal server error at {target_url}' + RESET)
+                    print(RED + f'  [-] Internal server error at {target_url}\n' + RESET)
                 elif Status >= 300 and Status <= 399 :
                     redirect_location = response.headers.get('Location')
-                    print(YELLOW + f"{target_url}" + RESET + ' is moved to ' + BLUE + f"{redirect_location}" + RESET)
+                    print(YELLOW + f"  [!]{target_url}" + RESET + ' is moved to \n' + BLUE + f"{redirect_location}" + RESET)
+                elif Status in [401,403,405] :
+                    print(RED + '  [!] Page Exists but need verification : {target_url}\n' + RESET)
                 else :
                     continue 
 
@@ -116,6 +178,11 @@ if len(arguments) == 3 :
     wordlist = arguments[2]
     header()
     brute_force(url,wordlist)
-else :
-    print(RED + 'INVALID ARGUMENTS' + RESET)
-    print(YELLOW + 'USE IT LIKE : python spider.py <target_url> <wordlist_path>' + RESET)
+elif len(arguments) == 2 and arguments[1].lower() in ['help','-h'] :
+    help()
+elif len(arguments) == 1 :
+    cli_loop()
+elif len(arguments) > 3 :
+    print(RED + '    too much argument passed' + RESET)
+else : 
+    print(RED + '    invalid argument' + RESET)
