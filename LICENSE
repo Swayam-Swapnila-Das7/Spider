@@ -1,4 +1,4 @@
-MIT License
+MIT License with Authorized Use Addendum
 
 Copyright (c) 2026 SWAYAM SWAPNILA DAS
 
@@ -9,8 +9,36 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
+IMPORTANT - AUTHORIZED USE ONLY:
+
+This software is a security testing tool designed for authorized use only. 
+Users must ensure they have explicit written permission from system/network 
+owners before using this tool. Unauthorized access to computer systems is 
+illegal in most jurisdictions under laws such as:
+
+- United States: Computer Fraud and Abuse Act (CFAA)
+- European Union: Computer Misuse Directive
+- United Kingdom: Computer Misuse Act 1990
+- Canada: Criminal Code, Section 430
+
+LEGITIMATE USE CASES:
+- Penetration testing on owned infrastructure
+- Authorized security assessments (with written permission)
+- Educational purposes in controlled lab environments
+- Capture The Flag (CTF) competitions and training
+- Security research with proper authorization
+
+PROHIBITED USES:
+- Unauthorized access to computer systems or networks
+- Testing third-party systems without explicit permission
+- Identifying vulnerabilities for malicious purposes
+- Circumventing security controls on systems you do not own
+- Contributing to unauthorized hacking or intrusion attempts
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
+
+DISCLAIMER:
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,3 +47,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+USER RESPONSIBILITY:
+
+By downloading, installing, or using this software, you acknowledge that:
+
+1. You understand the legal implications of unauthorized computer access
+2. You will only use this tool on systems you own or have explicit authorization to test
+3. You assume full responsibility for any consequences arising from your use of this tool
+4. The author cannot be held liable for misuse, unauthorized access, or legal violations
+5. You agree to use this tool ethically and in compliance with all applicable laws
+
+LIMITATIONS OF LIABILITY:
+
+In no event shall the author be liable for:
+- Any unauthorized access to computer systems or networks
+- Data loss, corruption, or disclosure
+- Legal consequences arising from misuse of this tool
+- System downtime or service disruptions
+- Any indirect, incidental, or consequential damages
+- Claims brought by third parties related to tool usage
+
+If you do not agree to these terms, do not use this software.
