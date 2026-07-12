@@ -4,7 +4,6 @@ Spider is a lightweight, web directory busting and reconnaissance tool inspired 
 
 [![Language](https://img.shields.io/badge/Language-Python-blue.svg)](https://www.python.org/)
 [![Security Component](https://img.shields.io/badge/Field-Reconnaissance-red.svg)](#)
-[![Status](https://img.shields.io/badge/Status-In--Progress-orange.svg)](#)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
