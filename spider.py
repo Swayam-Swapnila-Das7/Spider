@@ -67,7 +67,7 @@ RESET = "\033[0m"
 
 time = datetime.now()
 
-def header() :
+def show_header() :
     # Print Header & developer details
     print(MAROON + banner+ RESET)
     print(YELLOW + "    [Developer : Swayam]")
@@ -77,7 +77,7 @@ def header() :
     print('\n' + '='*55 + '\n')
 
 
-def help():
+def show_help():
     print(BLUE + "\n    " + "="*55 + RESET)
     print(YELLOW + "                URL Directory Enumerator Help" + RESET)
     print(BLUE + "    " + "="*55 + RESET)
@@ -113,31 +113,8 @@ def help():
     """)
     print(BLUE + "    " + "="*55 + "\n" + RESET)
 
-def cli_loop():
-    header()
-    # Main Interactive CLI Loop
-    while True:
-        print(MAROON + '\n[ MAIN INTERFACE ]' + RESET)
-        print(BLUE + '  [1] Start Brute force' + RESET)
-        print(BLUE + '  [2] Help' + RESET)
-        print(BLUE + '  [3] Terminate Program' + RESET)
-    
-        choice = input('\nSelect option ID (1-3): ').strip()
-    
-        match choice:
-            case '1':
-                url = input(YELLOW + 'Enter the target URL Address : ' + RESET)
-                wordlist = input(YELLOW + 'Enter the Wordlist File Path: ' + RESET)
-                brute_force(url,wordlist)
-            case '2':
-                help()
-            case '3':
-                print(GREEN + "\n[+] Session closed safely !" + RESET)
-                break 
-            case _:
-                print(RED + '\n[-] Invalid Input: Please specify a choice between available valid options !' + RESET)
 
-def brute_force(url,wordlist) :
+def execute_brute_force(url,wordlist) :
     print(BLUE + 'Wait until you get the completion message...' + RESET)
     if not url.startswith((r'https://',r'http://')) :
         url = rf'https://{url}'
@@ -171,17 +148,44 @@ def brute_force(url,wordlist) :
         print(RED + f'    [-]Error : {e}' + RESET)
     print(GREEN + '    Process Completed' + RESET)
 
+
+
+def open_interactive_menu():
+    header()
+    # Main Interactive CLI Loop
+    while True:
+        print(MAROON + '\n[ MAIN INTERFACE ]' + RESET)
+        print(BLUE + '  [1] Start Brute force' + RESET)
+        print(BLUE + '  [2] Help' + RESET)
+        print(BLUE + '  [3] Terminate Program' + RESET)
+    
+        choice = input('\nSelect option ID (1-3): ').strip()
+    
+        match choice:
+            case '1':
+                url = input(YELLOW + 'Enter the target URL Address : ' + RESET)
+                wordlist = input(YELLOW + 'Enter the Wordlist File Path: ' + RESET)
+                brute_force(url,wordlist)
+            case '2':
+                help()
+            case '3':
+                print(GREEN + "\n[+] Session closed safely !" + RESET)
+                break 
+            case _:
+                print(RED + '\n[-] Invalid Input: Please specify a choice between available valid options !' + RESET)
+                
+
 arguments = sys.argv
 
 if len(arguments) == 3 :
     url = arguments[1]
     wordlist = arguments[2]
-    header()
-    brute_force(url,wordlist)
+    show_header()
+    execute_brute_force(url,wordlist)
 elif len(arguments) == 2 and arguments[1].lower() in ['help','-h'] :
-    help()
+    show_help()
 elif len(arguments) == 1 :
-    cli_loop()
+    open_interactive_menu()
 elif len(arguments) > 3 :
     print(RED + '    too much argument passed' + RESET)
 else : 
