@@ -122,22 +122,28 @@ def execute_brute_force(url,wordlist) :
     try :
         with open(wordlist,'r') as file :
             for word in file :
-                word = word.strip()
+                #remove all leading and ending white spaces form word
+                word = word.strip() 
+
+                #Check ,if there was any word or not
                 if not word :
                     continue 
-                target_url = rf'{url}/{word}'
+                    
+                #set the url,before sending get request
+                target_url = rf'{url}/{word}'   
+                
                 response = requests.get(target_url,allow_redirects = False)
                 Status = response.status_code
-                if Status >= 200 and Status <= 299 :
+                if Status >= 200 and Status <= 299 :                   #Status codes for Success
                     print(GREEN + f'  [+] Page found at : {target_url}\n' + RESET)
-                elif Status >= 500 :
+                elif Status >= 500 :                                   #status code for internal server error
                     print(RED + f'  [-] Internal server error at {target_url}\n' + RESET)
-                elif Status >= 300 and Status <= 399 :
+                elif Status >= 300 and Status <= 399 :                   #if the page redirect to some where else
                     redirect_location = response.headers.get('Location')
                     print(YELLOW + f"  [!]{target_url}" + RESET + ' is moved to \n' + BLUE + f"{redirect_location}" + RESET)
-                elif Status in [401,403,405] :
+                elif Status in [401,403,405] :                            #if target exist but require permission/verification/authentication
                     print(RED + '  [!] Page Exists but need verification : {target_url}\n' + RESET)
-                else :
+                else :                                                   #else skip and keep going ,don't mess the output window
                     continue 
 
     except FileExistsError :
